@@ -1,0 +1,16 @@
+name: Docker Image bauen
+
+on:
+  push:
+     branches: [ main ]
+
+jobs:
+  build:
+     runs-on: ubuntu-latest
+
+     steps:
+        - name: Code herunterladen
+          uses: actions/checkout@v3
+
+        - name: Docker Image bauen
+          run: docker build -t docker-webserver .
